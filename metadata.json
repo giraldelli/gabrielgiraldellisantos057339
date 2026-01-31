@@ -1,0 +1,5 @@
+{
+  "name": "PetConnect",
+  "description": "Uma plataforma amigável para registro de tutores e seus pets, com geração de biografia assistida por IA.",
+  "requestFramePermissions": []
+}
