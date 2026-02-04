@@ -32,14 +32,12 @@ export const LoginPage: React.FC = () => {
         };
       };
       const data = axiosErr?.response?.data;
+      const dataObj = typeof data === 'object' && data !== null ? (data as Record<string, unknown>) : null;
+      const erros = dataObj?.erros;
       const apiMsg =
-        typeof data === 'object' && data !== null
-          ? (data as Record<string, unknown>).message ??
-            (data as Record<string, unknown>).error ??
-            (data as Record<string, unknown>).detalhes ??
-            (Array.isArray((data as Record<string, unknown>).erros)
-              ? (data as Record<string, unknown>).erros?.join(', ')
-              : undefined)
+        dataObj
+          ? dataObj.message ?? dataObj.error ?? dataObj.detalhes ??
+            (Array.isArray(erros) ? (erros as string[]).join(', ') : undefined)
           : String(data);
       if (axiosErr?.response && import.meta.env.DEV) {
         console.warn('Resposta da API (erro):', axiosErr.response.status, data);
@@ -57,9 +55,12 @@ export const LoginPage: React.FC = () => {
     }
   };
 
+  const logoUrl = 'https://i.imgur.com/cqOdfj3.png';
+
   return (
     <div className="animate-fade-in-up w-full max-w-md">
       <div className="text-center mb-8">
+        <img src={logoUrl} alt="PetConnect" className="h-32 w-auto mx-auto mb-6 object-contain mix-blend-multiply" />
         <h2 className="text-3xl font-bold text-slate-800 mb-2">Bem-vindo de volta!</h2>
         <p className="text-slate-500">Acesse sua conta para ver seus pets.</p>
       </div>

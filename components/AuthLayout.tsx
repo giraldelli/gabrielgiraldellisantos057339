@@ -1,18 +1,16 @@
 import React from 'react';
 import { Link } from 'react-router-dom';
-import { PawPrint } from 'lucide-react';
+
+const LOGO_URL = 'https://i.imgur.com/cqOdfj3.png';
 
 export const AuthLayout: React.FC<{ children: React.ReactNode }> = ({ children }) => {
   return (
     <div className="min-h-screen bg-sky-50 flex flex-col">
       <nav className="w-full bg-white/80 backdrop-blur-md border-b border-sky-100">
         <div className="max-w-6xl mx-auto px-4 sm:px-6 lg:px-8">
-          <div className="flex justify-center sm:justify-start items-center h-16">
-            <Link to="/login" className="flex items-center gap-2 text-sky-500">
-              <div className="bg-sky-500 p-2 rounded-xl text-white">
-                <PawPrint className="w-6 h-6" />
-              </div>
-              <span className="font-bold text-2xl tracking-tight text-slate-800">PetConnect</span>
+          <div className="flex justify-center sm:justify-start items-center h-24">
+            <Link to="/login" className="flex items-center">
+              <img src={LOGO_URL} alt="PetConnect" className="h-20 w-auto object-contain mix-blend-multiply" />
             </Link>
           </div>
         </div>

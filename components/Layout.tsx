@@ -1,7 +1,9 @@
 import React from 'react';
 import { Link, useNavigate } from 'react-router-dom';
-import { PawPrint, LogOut, Dog, User } from 'lucide-react';
+import { LogOut, Dog, User } from 'lucide-react';
 import { useAuth } from '../contexts/AuthContext';
+
+const LOGO_URL = 'https://i.imgur.com/cqOdfj3.png';
 
 export const Layout: React.FC<{ children: React.ReactNode }> = ({ children }) => {
   const { logout } = useAuth();
@@ -16,15 +18,10 @@ export const Layout: React.FC<{ children: React.ReactNode }> = ({ children }) =>
     <div className="min-h-screen bg-sky-50 flex flex-col">
       <nav className="w-full bg-white/80 backdrop-blur-md border-b border-sky-100 sticky top-0 z-50">
         <div className="max-w-6xl mx-auto px-4 sm:px-6 lg:px-8">
-          <div className="flex justify-between items-center h-16">
-            <div className="flex items-center gap-2 text-sky-500">
-              <Link to="/pets" className="flex items-center gap-2 hover:opacity-80 transition-opacity">
-                <div className="bg-sky-500 p-2 rounded-xl text-white">
-                  <PawPrint className="w-6 h-6" />
-                </div>
-                <span className="font-bold text-2xl tracking-tight text-slate-800 hidden sm:inline">
-                  PetConnect
-                </span>
+          <div className="flex justify-between items-center h-24">
+            <div className="flex items-center">
+              <Link to="/pets" className="hover:opacity-90 transition-opacity">
+                <img src={LOGO_URL} alt="PetConnect" className="h-20 w-auto object-contain mix-blend-multiply" />
               </Link>
             </div>
             <div className="flex items-center gap-2">
