@@ -105,3 +105,6 @@ Passo a passo rápido:
 - Execute: Set-ExecutionPolicy RemoteSigned -Scope CurrentUser.
 - Confirme com Y.
 - Tente o npm install novamente no seu projeto. 
+4. Após conseguir abrir a interface principal utilize:
+  Login: teste
+  Senha: teste123
